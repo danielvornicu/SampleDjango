@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Creation ou modification{% endblock %}
+
+{% block content %}
+{% load widget_tweaks %}
+<div class="card">
+
+  <form method="post">
+
+    <div class="card-header">
+        <h4>
+          {% if clientId == -1 %}
+            {{msg.fiche.client.titres.creation}}
+          {% else %}
+            {{msg.fiche.client.titres.modification}}  {{form.prenom.value}} {{form.nom.value}}  
+          {% endif %}
+        </h4>
+    </div>
+  
+    <div class="card-body">
+      <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="{{ form.nom.id_for_label }}">{{msg.fiche.client.nom}}</label>
+          <div class="col-md-8">
+            <!-- {{ form.nom|add_class:"form-control"|attr:"required" }}  -->
+            {% render_field form.nom class="form-control" placeholder=msg.fiche.client.nomPlaceHolder %}
+          </div>
+          {{ form.nom.errors }}
+      </div>
+      <div class="form-group row mb-2">
+          
+          <label class="col-md-2 col-form-label" for="{{ form.prenom.id_for_label }}">{{ msg.fiche.client.prenom}}</label>
+          <div class="col-md-8">
+            {% render_field form.prenom class="form-control" placeholder=msg.fiche.client.prenomPlaceHolder %}
+          </div>
+          {{ form.prenom.errors }}
+      </div>
+    </div>
+    
+  
+
+    <div class='card-footer'>
+      <button class="btn btn-primary mr-3"
+              style="width:100px;"
+              title="{{ msg.fiche.boutons.valider}}"
+              type="submit">{{ msg.fiche.boutons.valider}}
+
+      </button>
+      <button class="btn btn-outline-secondary mr-3"
+              style="width:100px;"
+              type="button"
+              title="{{ msg.fiche.boutons.annulerTitle}}">
+        <a href="{% url 'index' %}" class="button is-text">{{ msg.fiche.boutons.annuler}}</a>
+      </button>  
+      {% if clientId > 0 %}
+        <button class="btn btn-outline-warning"
+              style="width:100px"
+              type="button"
+              title="{{ msg.fiche.boutons.supprimerTitle}}">
+          <a  href="{% url 'delete' clientId %}">{{ msg.fiche.boutons.supprimer}}</a>
+        </button>  
+      {% endif %}
+    </div>
+    {% csrf_token %}
+    <!-- <br>Value: {{ form.instance.nom}} {{form.instance.prenom}} -->
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+[
+{
+  "model": "clients.client",
+  "pk": 1,
+  "fields": {
+    "prenom": "a",
+    "nom": "a",
+    "adresse": null
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 2,
+  "fields": {
+    "prenom": "b",
+    "nom": "b",
+    "adresse": null
+  }
+}
+]

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'clients/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'clients/styles.css' %}">
+<!--     <script>
+    $(document).ready(function(){
+      window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+      }, 5000);
+      });
+    </script> -->
+</head>
+<body>
+    
+    {% if messages %}
+      <div class="container">
+      {% for msg in messages %}
+        <div class="alert alert-{{msg.level_tag}} alert-dismissable" id="msg.message{{ loop.index }}">
+          <button class="close" data-target="msg.message{{ loop.index }}"  data-dismiss="alert" aria-label="delete">
+                  <span aria-hidden="true">&times;</span>
+          </button>
+          {{msg.message}}
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+    
+    <section class="section">
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </section>
+
+    <script src="{% static 'clients/app.js' %}"></script>
+    
+   
+</body>
+</html>

@@ -1,0 +1,47 @@
+[
+{
+  "model": "clients.client",
+  "pk": 1,
+  "fields": {
+      "prenom": "DANIEL",
+      "nom": "VORNICU",
+      "adresse": null
+    }
+},
+{
+"model": "clients.client",
+  "pk":2,
+  "fields": {
+      "prenom": "ALINA",
+      "nom": "VORNICU",
+      "adresse": null
+    }
+}, 
+{
+"model": "clients.client",
+  "pk":3,
+  "fields": {
+      "prenom": "LUCA",
+      "nom": "VORNICU",
+      "adresse": null
+    }
+}, 
+{
+"model": "clients.client",
+  "pk":4,
+  "fields": {
+      "prenom": "SOFIA",
+      "nom": "VORNICU",
+      "adresse": null
+    }
+}, 
+{
+"model": "clients.client",
+  "pk":5,
+  "fields": {
+      "prenom": "ERIC",
+      "nom": "SIBER",
+      "adresse": null
+    }
+}
+]
