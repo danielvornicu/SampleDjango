@@ -128,7 +128,7 @@ git push -u origin master
 
 Deploy SampleDjango application on Heroku with Heroku CLI:
 Set a certificate if necessary:
->set NODE_EXTRA_CA_CERTS=d:\python\examples\heroku\ANFH-CA.cer
+>set NODE_EXTRA_CA_CERTS=d:\python\examples\heroku\Certificat.cer
 
 Make a requirements.txt in SampleDjango project folder file with:
 django>=3.0.7
