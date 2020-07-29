@@ -123,3 +123,48 @@ git commit -m "first commit"
 Connect it to github ad create a new repository: SampleDjango
 git remote add origin https://github.com/danielvornicu/SampleDjango.git
 git push -u origin master
+
+
+
+Deploy SampleDjango application on Heroku with Heroku CLI:
+Set a certificate if necessary:
+>set NODE_EXTRA_CA_CERTS=d:\python\examples\heroku\ANFH-CA.cer
+
+Make a requirements.txt in SampleDjango project folder file with:
+django>=3.0.7
+django-widget-tweaks>=1.4.5
+djangorestframework>=3.11.00
+gunicorn==20.0.4
+whitenoise==5.1.0
+
+then Procfile:
+web: gunicorn SampleDjango.wsgi
+
+Use WhiteNoise with Django for simplified static file serving:
+Modify: SampleDjango/settings.py adding:
+1.Make sure staticfiles is configured correctly
+  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')      
+2.Enable WhiteNoise:
+  MIDDLEWARE = [
+      ...
+      'whitenoise.middleware.WhiteNoiseMiddleware',
+  ]
+3.Add compression and caching support
+  STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+4. Add the host in ALLOWED_HOSTS:
+  ALLOWED_HOSTS = [
+       'floating-river-31233.herokuapp.com'
+  ]  
+  
+an add them to git:
+git add requirements.txt Procfile SampleDjango/settings.py
+git commit -m "3 files added"
+git push -u origin master
+
+>heroku create
+>heroku buildpacks:set heroku/python --app floating-river-31233
+>heroku config:set DISABLE_COLLECTSTATIC=1
+>git push heroku master
+
+Then go to:
+https://floating-river-31233.herokuapp.com/client/
