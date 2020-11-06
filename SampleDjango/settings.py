@@ -25,7 +25,8 @@ SECRET_KEY = ')7rb93c9*85ogoepg2@2i3)z0m-+z1u4a*n*dxtj42r4-yz-)y'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-     'floating-river-31233.herokuapp.com'
+     'floating-river-31233.herokuapp.com',
+     'sample-crud-django.herokuapp.com'
 ]
 
 
