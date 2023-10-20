@@ -26,7 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
      'floating-river-31233.herokuapp.com',
-     'sample-crud-django.herokuapp.com'
+     'sample-crud-django.herokuapp.com',
+     'sample-crud-django.onrender.com'
 ]
 
 
